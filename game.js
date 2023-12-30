@@ -8,6 +8,7 @@ const boxTwo = document.getElementById("number2");
 boxTwo.innerHTML = number2;
 
 // Iteration 3: Make the options button functional
+<<<<<<< HEAD
 const greater = document.getElementById("greater-than");
 const equal = document.getElementById("equal-to");
 const lesser = document.getElementById("lesser-than");
@@ -72,3 +73,7 @@ function resetTime(intervalId) {
   startTimer();
 }
 startTimer();
+=======
+
+// Iteration 4: Build a timer for the game
+>>>>>>> cdfacf8d4c36c2f43437d72a117dd3b305c9b49b
