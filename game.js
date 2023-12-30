@@ -1,67 +1,62 @@
 // Iteration 2: Generate 2 random number and display it on the screen
-var number1 = Math.round(Math.random() * 100);
-const number1box = document.getElementById("number1");
-number1box.innerHTML = number1;
+let number1 = Math.round(Math.random() * 100);
+const boxOne = document.getElementById("number1");
+boxOne.innerHTML = number1;
 
-var number2 = Math.round(Math.random() * 100);
-const number2box = document.getElementById("number2");
-number2box.innerHTML = number2;
+let number2 = Math.round(Math.random() * 100);
+const boxTwo = document.getElementById("number2");
+boxTwo.innerHTML = number2;
 
 // Iteration 3: Make the options button functional
-const greaterThan = document.getElementById("greater-than");
-const equalTo = document.getElementById("equal-to");
-const lesserThan = document.getElementById("lesser-than");
+const greater = document.getElementById("greater-than");
+const equal = document.getElementById("equal-to");
+const lesser = document.getElementById("lesser-than");
+let score = 0;
 
-var score = 0;
-greaterThan.onclick = () => {
+greater.onclick = () => {
   if (number1 > number2) {
     score++;
     resetTime(timerId);
   } else {
-    location.href = "./gameover.html";
+    location.href = "gameover.html";
   }
-
   number1 = Math.round(Math.random() * 100);
-  number1box.innerHTML = number1;
+  boxOne.innerHTML = number1;
   number2 = Math.round(Math.random() * 100);
-  number2box.innerHTML = number2;
+  boxTwo.innerHTML = number2;
 };
 
-lesserThan.onclick = () => {
+lesser.onclick = () => {
   if (number1 < number2) {
     score++;
     resetTime(timerId);
   } else {
     location.href = "./gameover.html";
   }
-
   number1 = Math.round(Math.random() * 100);
-  number1box.innerHTML = number1;
+  boxOne.innerHTML = number1;
   number2 = Math.round(Math.random() * 100);
-  number2box.innerHTML = number2;
+  boxTwo.innerHTML = number2;
 };
 
-equalTo.onclick = () => {
+equal.onclick = () => {
   if (number1 == number2) {
     score++;
     resetTime(timerId);
   } else {
     location.href = "./gameover.html";
   }
-
   number1 = Math.round(Math.random() * 100);
-  number1box.innerHTML = number1;
+  boxOne.innerHTML = number1;
   number2 = Math.round(Math.random() * 100);
-  number2box.innerHTML = number2;
+  boxTwo.innerHTML = number2;
 };
 
 // Iteration 4: Build a timer for the game
-var time = 5;
-var timer = document.getElementById("timer");
-var timerId;
-
+let timer = document.getElementById("timer");
+let timerId;
 function startTimer() {
-  time = 3;
+  time = 15;
   timer.innerHTML = time;
   timerId = setInterval(() => {
     time--;
@@ -72,10 +67,8 @@ function startTimer() {
   }, 1000);
   localStorage.setItem("score", score);
 }
-
 function resetTime(intervalId) {
   clearInterval(intervalId);
   startTimer();
 }
-
 startTimer();
